@@ -1,0 +1,118 @@
+rm -f /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/test_info
+rm -f /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/*.hex
+make -C /home/stmikeal/homeworks/soc/scr1/sim/tests/riscv_isa ARCH=imc
+make[1]: Entering directory '/home/stmikeal/homeworks/soc/scr1/sim/tests/riscv_isa'
+riscv64-unknown-elf-objcopy -O verilog /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/add.elf /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/add.hex
+make[1]: Leaving directory '/home/stmikeal/homeworks/soc/scr1/sim/tests/riscv_isa'
+cd /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0
+make -C /home/stmikeal/homeworks/soc/scr1/sim build_verilator SIM_CFG_DEF=SCR1_CFG_RV32IMC_MAX SIM_TRACE_DEF=SCR1_TRACE_LOG_DIS SIM_BUILD_OPTS="";
+make[1]: Entering directory '/home/stmikeal/homeworks/soc/scr1/sim'
+cd /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0; \
+verilator \
+-cc \
+-sv \
++1800-2017ext+sv \
+-Wno-fatal \
+--top-module scr1_top_tb_ahb \
+-DSCR1_TRGT_SIMULATION \
+-DSCR1_TRACE_LOG_DIS \
+-DSCR1_CFG_RV32IMC_MAX \
+--clk clk \
+--timing \
+--exe /home/stmikeal/homeworks/soc/scr1/sim/verilator_wrap/scr1_ahb_wrapper.c \
+--Mdir /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/verilator \
+-I/home/stmikeal/homeworks/soc/scr1/src/includes \
+-I/home/stmikeal/homeworks/soc/scr1/src/tb \
+ \
+/home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_hdu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_tdu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_ipic.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_csr.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_exu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_ialu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_idu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_ifu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_lsu.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_mprf.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_pipe_top.sv /home/stmikeal/homeworks/soc/scr1/src/core/primitives/scr1_reset_cells.sv /home/stmikeal/homeworks/soc/scr1/src/core/primitives/scr1_cg.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_clk_ctrl.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_tapc_shift_reg.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_tapc.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_tapc_synchronizer.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_core_top.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_dm.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_dmi.sv /home/stmikeal/homeworks/soc/scr1/src/core/scr1_scu.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_dmem_router.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_imem_router.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_dp_memory.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_tcm.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_timer.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_dmem_ahb.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_imem_ahb.sv /home/stmikeal/homeworks/soc/scr1/src/top/scr1_top_ahb.sv /home/stmikeal/homeworks/soc/scr1/src/core/pipeline/scr1_tracelog.sv /home/stmikeal/homeworks/soc/scr1/src/tb/scr1_memory_tb_ahb.sv /home/stmikeal/homeworks/soc/scr1/src/tb/scr1_top_tb_ahb.sv /home/stmikeal/homeworks/soc/scr1/src/tb/scr1_tb_add_log_cmd.sv; \
+cd verilator; \
+make -f Vscr1_top_tb_ahb.mk;
+- V e r i l a t i o n   R e p o r t: Verilator 5.030 2024-10-27 rev v5.030-45-g2cb1a8de7
+- Verilator: Built from 0.000 MB sources in 0 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.000 s (elab=0.000, cvt=0.000, bld=0.000); cpu 0.000 s on 1 threads; alloced 8.031 MB
+make[2]: Entering directory '/home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/verilator'
+make[2]: Nothing to be done for 'default'.
+make[2]: Leaving directory '/home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/verilator'
+make[1]: Leaving directory '/home/stmikeal/homeworks/soc/scr1/sim'
+printf "" > /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/test_results.txt;
+cd /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0; \
+echo scr1_top_tb_ahb | tee /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/sim_results.txt; \
+/home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/verilator/Vscr1_top_tb_ahb \
++test_info=/home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/test_info \
++test_results=/home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/test_results.txt \
++imem_pattern=FFFFFFFF \
++dmem_pattern=FFFFFFFF \
+ | tee -a /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/sim_results.txt ;\
+printf "Simulation performed on $(verilator -version) \n" ;\
+printf "                          Test               | build | simulation \n" ; \
+printf "$(cat /home/stmikeal/homeworks/soc/scr1/build/verilator_AHB_MAX_imc_IPIC_1_TCM_1_VIRQ_1_TRACE_0/test_results.txt) \n"
+scr1_top_tb_ahb
+[0;34m---Test:                          add.hex[0m
+Detect ADD command, rs1 = 00000000, rs2 = 00000000 
+
+Detect ADD command, rs1 = 00000000, rs2 = 00000000 
+
+Detect ADD command, rs1 = 00000001, rs2 = 00000001 
+
+Detect ADD command, rs1 = 00000000, rs2 = ffff8000 
+
+Detect ADD command, rs1 = 00000000, rs2 = ffff8000 
+
+Detect ADD command, rs1 = 80000000, rs2 = 00007fff 
+
+Detect ADD command, rs1 = 7fffffff, rs2 = ffff8000 
+
+Detect ADD command, rs1 = 00000000, rs2 = ffffffff 
+
+Detect ADD command, rs1 = ffffffff, rs2 = 00000001 
+
+Detect ADD command, rs1 = 0000000d, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000e, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000e, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000d, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000e, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000d, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000d, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000e, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000e, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 0000000b 
+
+Detect ADD command, rs1 = 0000000f, rs2 = 00000000 
+
+Detect ADD command, rs1 = 00000000, rs2 = 00000000 
+
+[0;32mTest passed[0m
+
+#--------------------------------------
+# Summary: 1/1 tests passed
+#--------------------------------------
+
+- /home/stmikeal/homeworks/soc/scr1/src/tb/scr1_top_tb_runtests.sv:199: Verilog $finish
+Simulation performed on Verilator 5.030 2024-10-27 rev v5.030-45-g2cb1a8de7 
+                          Test               | build | simulation 
+                         add.hex		OK	  PASS 
