@@ -89,6 +89,7 @@ build_verilator: $(sv_list)
 	-D$(SIM_TRACE_DEF) \
 	-D$(SIM_CFG_DEF) \
 	--clk clk \
+	--timing \
 	--exe $(scr1_wrapper) \
 	--Mdir $(bld_dir)/verilator \
 	-I$(rtl_inc_dir) \
@@ -112,6 +113,7 @@ build_verilator_wf: $(sv_list)
 	-CFLAGS -DVCD_TRACE -CFLAGS -DTRACE_LVLV=20 \
 	-CFLAGS -DVCD_FNAME=simx.vcd \
 	--clk clk \
+	--timing \
 	--exe $(scr1_wrapper) \
 	--trace \
 	--trace-params \
